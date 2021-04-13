@@ -25,11 +25,13 @@ ActiveRecord::Schema.define(version: 2021_04_13_173550) do
 
   create_table "bitzs", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.bigint "issuer_id", null: false
     t.bigint "bitz_def_id", null: false
     t.string "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bitz_def_id"], name: "index_bitzs_on_bitz_def_id"
+    t.index ["issuer_id"], name: "index_bitzs_on_issuer_id"
     t.index ["user_id"], name: "index_bitzs_on_user_id"
   end
 
@@ -42,4 +44,5 @@ ActiveRecord::Schema.define(version: 2021_04_13_173550) do
   add_foreign_key "bitz_defs", "users"
   add_foreign_key "bitzs", "bitz_defs"
   add_foreign_key "bitzs", "users"
+  add_foreign_key "bitzs", "users", column: "issuer_id"
 end
