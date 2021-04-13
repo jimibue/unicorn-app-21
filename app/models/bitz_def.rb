@@ -1,0 +1,2 @@
+class BitzDef < ApplicationRecord
+end
