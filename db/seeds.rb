@@ -41,5 +41,16 @@ Bitz.create(user_id: sally.id, issuer_id:usa_government.id, bitz_def_id: q_usa_c
 us_dob = BitzDef.create(user_id:usa_government.id, name:'dob')
 Bitz.create(user_id: sally.id,issuer_id:usa_government.id,  bitz_def_id: us_dob.id, value:'6.27.67')
 
+# james trust the government/goverment doesnt trust james
+Trustee.create(user_id:james.id, trustee_id:usa_government.id)
+Trustee.create(user_id:james.id, trustee_id:delta.id)
+Trustee.create(user_id:james.id, trustee_id:cvs.id)
+Trustee.create(user_id:delta.id, trustee_id:usa_government.id)
+Trustee.create(user_id:delta.id, trustee_id:cvs.id)
+Trustee.create(user_id:cvs.id, trustee_id:delta.id)
+Trustee.create(user_id:usa_government.id, trustee_id:delta.id)
+Trustee.create(user_id:usa_government.id, trustee_id:cvs.id)
+Trustee.create(user_id:james.id, trustee_id:sally.id)
+Trustee.create(user_id:sally.id, trustee_id:q.id)
 
 

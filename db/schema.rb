@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_13_173550) do
+ActiveRecord::Schema.define(version: 2021_04_13_182636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2021_04_13_173550) do
     t.index ["user_id"], name: "index_bitzs_on_user_id"
   end
 
+  create_table "trustees", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "trustee_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trustee_id"], name: "index_trustees_on_trustee_id"
+    t.index ["user_id"], name: "index_trustees_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -45,4 +54,6 @@ ActiveRecord::Schema.define(version: 2021_04_13_173550) do
   add_foreign_key "bitzs", "bitz_defs"
   add_foreign_key "bitzs", "users"
   add_foreign_key "bitzs", "users", column: "issuer_id"
+  add_foreign_key "trustees", "users"
+  add_foreign_key "trustees", "users", column: "trustee_id"
 end
