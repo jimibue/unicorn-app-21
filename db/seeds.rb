@@ -35,8 +35,8 @@ Bitz.create(user_id: delta.id, issuer_id:tom_brady.id, bitz_def_id: tomBradyThin
 usa_citizenship = BitzDef.create(user_id:usa_government.id, name:'us citizen')
 q_usa_citizenship = BitzDef.create(user_id:q.id, name:'us citizen')
 
-Bitz.create(user_id: sally.id,issuer_id:usa_government.id,  bitz_def_id: usa_citizenship.id)
-Bitz.create(user_id: sally.id,issuer_id:usa_government.id, bitz_def_id: q_usa_citizenship.id)
+Bitz.create(user_id: sally.id, issuer_id:usa_government.id,  bitz_def_id: usa_citizenship.id)
+Bitz.create(user_id: sally.id, issuer_id:usa_government.id, bitz_def_id: q_usa_citizenship.id)
 
 us_dob = BitzDef.create(user_id:usa_government.id, name:'dob')
 Bitz.create(user_id: sally.id,issuer_id:usa_government.id,  bitz_def_id: us_dob.id, value:'6.27.67')
